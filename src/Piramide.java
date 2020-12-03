@@ -20,28 +20,28 @@ public class Piramide {
 	//Salida: Nada
 	private static void printPiramide(int niveles, char caracter) {
 		if(esCaracterImprimible(caracter)) {//En el caso del que caracter proporcionado sea imprimible
-		for(int nivel=1;nivel<=niveles;nivel++) { //Recorremos todasa las filas
-			pintarFila(nivel,niveles,caracter); //Imprimimos cada fila
-		}
+			for(int nivel=1;nivel<=niveles;nivel++) { //Recorremos todasa las filas
+				pintarFila(nivel,niveles,caracter); //Imprimimos cada fila
+			}
 			imprimeUltimaFila(caracter, niveles);//Imprimimos la ultima fila
 		}
 	}
-	
-		//Precondición: nivel y niveles debe ser un numero entre 2 y 9, y nivel debe ser menor que niveles
-		//Postcondicion: imprime en la salida estandar (la pantalla), la fila correspodiente al
-		//nivel indicado por el parametro nivel, para un cuadrado co un numero de filas indicado por 
-		//el parametro niveles. Es decir, niveles indica el tamaño del cuadrado
-		//Entradas: nivel, niveles y caracter
-		//Salida: Nada
-	private static void pintarFila(int nivel, int niveles, char caracter) {
-			pintarLado(nivel, niveles, caracter);//Dibuja el lado izquierdo
-			pintarNumeros(nivel,niveles,caracter);//Dibuja los numeros del centro
-			pintarLado(nivel, niveles, caracter);//Dibuja el lado derecho
-			System.out.println();//Salto de linea
-		}
-		
 
-	//Precondición: nivel y niveles debe ser un numero entre 2 y 9, y nivel debe ser menor que niveles
+	//Precondición: nivel y niveles debe ser un numero entre 2 y 9, caracter imprimible y nivel debe ser menor que niveles
+	//Postcondicion: imprime en la salida estandar (la pantalla), la fila correspodiente al
+	//nivel indicado por el parametro nivel, para un cuadrado con un numero de filas indicado por 
+	//el parametro niveles. Es decir, niveles indica el tamaño del cuadrado
+	//Entradas: nivel, niveles y caracter
+	//Salida: Nada
+	private static void pintarFila(int nivel, int niveles, char caracter) {
+		pintarLado(nivel, niveles, caracter);//Dibuja el lado izquierdo
+		pintarNumeros(nivel,niveles,caracter);//Dibuja los numeros del centro
+		pintarLado(nivel, niveles, caracter);//Dibuja el lado derecho
+		System.out.println();//Salto de linea
+	}
+
+
+	//Precondición: nivel y niveles debe ser un numero entre 2 y 9, caracter imprimible  y nivel debe ser menor que niveles
 	//Postcondicion: imprime la piramide de numeros, que van incrementandose desde 1 hasta el nivel,
 	// y posteriormente decrementandose hasta 1
 	//Entradas: nivel, niveles y caracter
@@ -59,7 +59,7 @@ public class Piramide {
 		for(int i=inicio;i>=fin;i--) {//Vamos decrementando i desde inicio hasta fin
 			System.out.print(i);//Imprimimos el numero
 		}
-		
+
 	}
 
 	//Precondición: fin tiene que ser mayor que inicio
@@ -70,14 +70,19 @@ public class Piramide {
 		for(int i=inicio;i<=fin;i++) {//Vamos incrementando i desde inicio hasta fin
 			System.out.print(i);//Imprimimos el numero
 		}
-		
+
 	}
 
+	//Precondición: niveles debe ser un numero entre 2 y 9, caracter imprimible y nivel debe ser menor que niveles
+	//Postcondicion: se imprime los caracteres laterales para un cuadrado del tamaño indicado por niveles, para la
+	//fila determinada por el parametro nivel
+	//Entradas: nivel, caracter y niveles
+	//Salida: Nada
 	private static void pintarLado(int nivel, int niveles, char caracter) {
-		int ancho=niveles-nivel+1;//El numero de caracter de un lado, viene determinado por la formula
+		int ancho=niveles-nivel+1;//El numero de caracter de un lado, viene determinado por esta formula
 		for(int i=1;i<=ancho;i++)//Segun el ancho indicado
 			System.out.print(caracter);//imprime el numero de caracteres
-		}
+	}
 
 	//Precondición: niveles debe ser un numero entre 2 y 9, y nivel debe ser menor que niveles
 	//Postcondicion: se imprime la ultima fila correspondiente a un cuadrado con el tamaño
@@ -89,7 +94,7 @@ public class Piramide {
 		for(int i=1;i<=ancho;i++){
 			System.out.print(caracter);//Rellenamos el ancho con el caracter
 		}
-		
+
 	}
 
 	//Precondición: No tiene
